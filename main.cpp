@@ -1,5 +1,6 @@
 #include <iostream>
-#include "loader.h"
+#include "loader/loader.h"
+#include "preprocess/preprocess.h"
 
 int main() {
     std::string dir = "20_newsgroups";
@@ -9,4 +10,6 @@ int main() {
     for(const auto& doc: docs) {
         std::cout<<"Path: "<<doc.path<<std::endl;
     }
+
+    cleanDocs(dir);
 }
