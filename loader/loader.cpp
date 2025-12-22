@@ -13,6 +13,10 @@ std::vector<Document> loadDocs(const std::string &directory) {
     for(const auto& entry : fs::recursive_directory_iterator(directory)) {
         if(!entry.is_regular_file()) continue;
 
+        std::string filepath = entry.path().string();
+        size_t lastSlash = filepath.find_last_of("/\\");
+        std::string filename = filepath.substr(lastSlash + 1);
+
         std::ifstream file(entry.path());
         if(!file.is_open()) {
             std::cerr<<"Could not open "<<entry.path()<<std::endl; // cerr because it is unbuffered, i.e. immediate output
@@ -22,7 +26,7 @@ std::vector<Document> loadDocs(const std::string &directory) {
         std::stringstream buffer;
         buffer<<file.rdbuf();
 
-        docs.push_back({ entry.path().string(), buffer.str() });
+        docs.push_back({ filepath, filename, buffer.str() });
     }
 
     return docs;

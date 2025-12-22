@@ -6,6 +6,7 @@
 
 struct Document {
     std::string path;
+    std::string filename;
     std::string content;
 };
 
