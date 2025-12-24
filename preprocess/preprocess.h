@@ -5,7 +5,7 @@
 #include <fstream>
 #include <iostream>
 
-std::string cleanText(const std::string& text);
+std::string cleaner(const std::string& text);
 void cleanDocs(const std::string& directory);
 
 #endif

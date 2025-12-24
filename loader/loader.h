@@ -7,8 +7,9 @@
 struct Document {
     std::string path;
     std::string filename;
-    std::string content;
 };
+
+extern size_t totalDocuments;
 
 std::vector<Document> loadDocs(const std::string &directory);
 
