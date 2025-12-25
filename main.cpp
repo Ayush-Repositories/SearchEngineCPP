@@ -4,7 +4,7 @@
 #include "tfidf/tfidf.h"
 
 int main() {
-    std::string dir = "smth";
+    std::string dir = "20_newsgroups";
 
     std::cout << "Step 1: Preprocessing documents in \"" << dir << "\"..." << std::endl;
     auto start1 = std::chrono::high_resolution_clock::now();
